@@ -1,2 +1,2 @@
 /* Minor Heat artwork: origin-clean for file:// and HTTP. */
-window.XIAOSHU_TERRAIN_PAINT = "https://cdn.jsdelivr.net/gh/runingWhale/china-wuhou@main/assets/web/xiaoshu-paint.webp";
+window.XIAOSHU_TERRAIN_PAINT = "assets/web/xiaoshu-paint.webp";

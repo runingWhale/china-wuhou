@@ -705,6 +705,12 @@
     function loadImage(src) {
         return new Promise(function (resolve, reject) {
             var img = new Image();
+            // HTTP images must remain origin-clean when uploaded to WebGL.
+            // Skip embedded artwork to preserve the offline file:// entry.
+            if (typeof src === 'string' && !/^(?:data|blob):/i.test(src)) {
+                var imageUrl = new URL(src, document.baseURI);
+                if (/^https?:$/.test(imageUrl.protocol)) img.crossOrigin = 'anonymous';
+            }
             img.onload = function () { resolve(img); };
             img.onerror = function () { reject(new Error('地形贴图加载失败')); };
             img.src = src;
