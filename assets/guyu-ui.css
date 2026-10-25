@@ -1,0 +1,32 @@
+/* 仅为谷雨添加说明手札；原页面、地图轮廓、工具栏与导航沿用原样。 */
+.guyu-notes{display:none;position:absolute;inset:0;z-index:11;pointer-events:none}
+.guyu-scene .guyu-notes{display:block}
+.guyu-scene[data-terrain-level="province"] .guyu-notes,.guyu-notes.is-collapsed{display:none}
+.guyu-leaders{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.guyu-leaders polyline{fill:none;stroke:#f6f1dd;stroke-width:1.6;stroke-linejoin:round;filter:drop-shadow(0 1px 1px #4f594766)}
+.guyu-leaders circle{fill:#f9f4e6;stroke:#839175;stroke-width:1}
+.guyu-map-card{position:absolute;width:174px;padding:5px 6px 6px;background:linear-gradient(135deg,#fbf6ebf5,#f1e9d9f5);border:1px solid #ac9b7b;border-radius:8px 3px 8px 3px;box-shadow:0 4px 13px #695d3c1c;color:#323c30}
+.guyu-card-art{position:relative;height:63px;overflow:hidden}
+.guyu-card-art canvas{display:block;width:100%;height:100%;object-fit:cover}
+.guyu-card-art h3{position:absolute;top:1px;left:1px;margin:0;padding:2px 10px 3px;background:#566e47;color:#fff9e8;font-size:17px;font-weight:400;letter-spacing:2px;line-height:1.15;border-radius:14px 7px 13px 6px}
+.guyu-map-card p{margin:5px 2px 0;font-size:12px;line-height:1.5;letter-spacing:.6px;white-space:nowrap}
+.guyu-map-card.northwest{left:20%;top:18%}.guyu-map-card.northeast{right:18%;top:18%}.guyu-map-card.north{left:53%;top:27%}
+.guyu-map-card.plateau{left:13%;top:46%}.guyu-map-card.southwest{left:33%;bottom:17%}.guyu-map-card.jiangnan{right:20%;bottom:28%}.guyu-map-card.south{left:54%;bottom:8.5%}
+.guyu-info-note{position:absolute;right:28px;top:45%;width:174px;padding:15px 14px;background:#f6efdfec;border:1px solid #b4a180;outline:1px solid #cbbd9e;outline-offset:-5px;border-radius:7px 3px;color:#4a5440}
+.guyu-info-note>h3{font-size:18px;font-weight:400;margin:0 0 8px;letter-spacing:1px}
+.guyu-info-note section{border-top:1px solid #b7a78c;padding-top:8px;margin-top:8px}
+.guyu-info-note h4{font-size:13px;letter-spacing:.5px;font-weight:400;margin:0 0 5px;color:#536d43}
+.guyu-info-note p{font-size:12px;line-height:1.7;letter-spacing:.5px;margin:0}
+.guyu-notes-toggle{position:absolute;right:0;top:-29px;border:1px solid #a4ac8c66;border-radius:14px;background:#f9f3e6e8;color:#5b7150;padding:5px 10px;font:11px 'KaiTi','STKaiti',serif;letter-spacing:1px;cursor:pointer}
+.guyu-notes-toggle[hidden],.guyu-scene[data-terrain-level="province"] .guyu-notes-toggle{display:none!important}
+@media(max-width:1400px){.guyu-map-card{width:148px;padding:4px 5px}.guyu-card-art{height:51px}.guyu-card-art h3{font-size:15px;padding:2px 8px}.guyu-map-card p{font-size:10px;letter-spacing:.3px}.guyu-info-note{display:none}.guyu-map-card.northwest{left:19%;top:20%}.guyu-map-card.northeast{right:16%;top:20%}.guyu-map-card.north{left:53%;top:31%}.guyu-map-card.plateau{left:13%;top:46%}.guyu-map-card.southwest{left:32%;bottom:19%}.guyu-map-card.south{left:52%;bottom:10%}}
+@media(max-height:780px) and (min-width:761px){.guyu-map-card{width:140px}.guyu-card-art{height:44px}.guyu-map-card p{font-size:10px;line-height:1.4}.guyu-map-card.northwest,.guyu-map-card.northeast{top:20%}.guyu-map-card.north{top:31%}.guyu-map-card.plateau{top:45%}.guyu-map-card.southwest{bottom:15%}.guyu-map-card.south{bottom:7%}}
+@media(max-width:760px){
+ .guyu-scene .guyu-notes{position:absolute;inset:170px 17px 285px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:9px;padding:11px;overflow-y:auto;overscroll-behavior:contain;background:#f5efdfed;border:1px solid #b7aa8f;border-radius:9px;pointer-events:auto;z-index:14}
+ .guyu-scene .guyu-notes.is-collapsed,.guyu-scene[data-terrain-level="province"] .guyu-notes{display:none}
+ .guyu-leaders{display:none}
+ .guyu-map-card,.guyu-map-card.northwest,.guyu-map-card.northeast,.guyu-map-card.north,.guyu-map-card.plateau,.guyu-map-card.southwest,.guyu-map-card.jiangnan,.guyu-map-card.south{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:auto;padding:4px}
+ .guyu-card-art{height:58px}.guyu-card-art h3{font-size:14px;letter-spacing:1px}.guyu-map-card p{font-size:12px;white-space:normal;letter-spacing:0;line-height:1.5}
+ .guyu-info-note{position:relative;display:block;right:auto;top:auto;width:auto;grid-column:1/-1;padding:14px}.guyu-info-note p{font-size:13px}
+ .guyu-notes-toggle{position:fixed;top:auto;right:20px;bottom:235px;font-size:10px;padding:5px 7px}
+}

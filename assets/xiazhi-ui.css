@@ -1,0 +1,26 @@
+/* 夏至独立景观与七个地域手札。其余节气不应用这些规则。 */
+.summer-regions { display:none; }
+body.xiazhi-scene { background-color:#123f50;background-image:radial-gradient(ellipse at 78% 76%,#17bdd348,transparent 62%),var(--summer-water),linear-gradient(180deg,#18394fc9,#175d68bb),url('ink-landscape.png');background-blend-mode:normal,screen,multiply,luminosity; }
+.xiazhi-scene .summer-regions { display:block;position:absolute;inset:0;pointer-events:none;z-index:11; }
+.xiazhi-scene[data-terrain-level="province"] .summer-regions { display:none; }
+.summer-region { position:absolute;width:190px;min-height:80px;padding:10px 13px;overflow:hidden;background:#0b2e40;border:1px solid #98d5d9;border-radius:9px;color:#eef6ed;box-shadow:0 7px 25px #03212b50,inset 0 0 0 2px #c7efeb12; }
+.summer-region canvas { position:absolute;right:0;top:0;width:100%;height:100%;object-fit:cover;opacity:.7; }
+.summer-region:after { content:'';position:absolute;inset:0;background:linear-gradient(90deg,#092a3fed 0%,#092a3fd9 47%,#092a3f12 100%); }
+.summer-region h3,.summer-region p { position:relative;z-index:1;margin:0; }
+.summer-region h3 { display:flex;align-items:center;gap:8px;font-weight:400;font-size:17px;letter-spacing:2px;margin-bottom:5px;text-shadow:0 1px 4px #061b2b; }
+.summer-region h3 span { color:#bce4ac;font-size:23px;line-height:23px; }
+.summer-region p { font-size:11px;letter-spacing:.7px;line-height:1.7;color:#e1e8d6;text-shadow:0 1px 3px #061b2b; }
+.summer-region.northwest { left:16%;top:21%; }.summer-region.northeast { right:13%;top:20%; }.summer-region.north { left:49%;top:27%; }
+.summer-region.plateau { left:19%;top:48%; }.summer-region.southwest { left:34%;bottom:25%; }.summer-region.jiangnan { right:9%;bottom:33%; }.summer-region.south { right:24%;bottom:18%; }
+.xiazhi-scene .main-title,.xiazhi-scene .brand-subtitle,.xiazhi-scene .nav-tab,.xiazhi-scene .poem-note,.xiazhi-scene .poem-note small,.xiazhi-scene .compass,.xiazhi-scene .rail-label,.xiazhi-scene .rail-foot,.xiazhi-scene .rail-term,.xiazhi-scene .map-instruction,.xiazhi-scene .term-summary p,.xiazhi-scene .term-heading span,.xiazhi-scene .province-open { color:#dce9df; }
+.xiazhi-scene .nav-tab.active,.xiazhi-scene .term-heading strong,.xiazhi-scene .rail-term.active { color:#eff4c3; }
+.xiazhi-scene .nav-tab { color:#dce9df!important; }.xiazhi-scene .nav-tab.active { color:#eff4c3!important; }
+.xiazhi-scene .scroll-btn { background:#123c4ada!important;color:#e0e9d3!important; }
+.xiazhi-scene .rail-term { text-shadow:none; }.xiazhi-scene .term-rail { background:linear-gradient(90deg,#143b4e80,transparent); }
+.xiazhi-scene .rail-term.active:after { background:linear-gradient(90deg,#8bc7854a,transparent); }
+.xiazhi-scene .terrain-controls,.xiazhi-scene .landform-legend,.xiazhi-scene .crop-toggle,.xiazhi-scene .scroll-btn { background:#123c4ada;border-color:#a1cec55c;color:#e0e9d3; }
+.xiazhi-scene .terrain-controls button,.xiazhi-scene .landform-legend,.xiazhi-scene .landform-legend h2 { color:#e0e9d3; }
+.xiazhi-scene .mini-map { background:#dae4da8c;border-color:#b1c7c96b; }.xiazhi-scene .compass { border-color:#b8d2dc8c; }
+.xiazhi-scene .term-summary { border-left-color:#a6ccae6b; }
+@media(max-width:1200px){.summer-region{width:160px;min-height:70px;padding:8px 10px;}.summer-region h3{font-size:15px;}.summer-region p{font-size:10px;letter-spacing:0;}.summer-region.northwest{left:17%;}.summer-region.northeast{right:11%;}.summer-region.north{left:46%;top:29%;}.summer-region.southwest{left:30%;bottom:28%;}.summer-region.south{right:19%;bottom:19%;}}
+@media(max-width:760px){.summer-region{width:auto;min-height:0;padding:5px 8px;border-radius:6px;}.summer-region h3{font-size:10px;letter-spacing:1px;gap:4px;margin:0;}.summer-region h3 span{font-size:16px;line-height:16px;}.summer-region p,.summer-region canvas{display:none;}.summer-region.northwest{left:7%;top:31%;}.summer-region.northeast{right:15%;top:30%;}.summer-region.north{left:49%;top:36%;}.summer-region.plateau{left:8%;top:47%;}.summer-region.southwest{left:26%;bottom:38%;}.summer-region.jiangnan{right:7%;bottom:43%;}.summer-region.south{right:22%;bottom:32%;}}

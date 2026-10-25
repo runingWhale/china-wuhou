@@ -1,0 +1,138 @@
+/* 山河长卷：把界面让给山水。 */
+.winter-regions { display:none; }
+body.dongzhi-scene { background-color:#082c40;background-image:radial-gradient(ellipse at 78% 75%,#087a9344,transparent 55%),linear-gradient(180deg,#061d31d9,#07415abe),url('ink-landscape.png');background-blend-mode:normal,multiply,luminosity; }
+.dongzhi-scene .winter-regions { display:block;position:absolute;inset:0;pointer-events:none;z-index:11; }
+.winter-region { position:absolute;padding:12px 16px;background:linear-gradient(130deg,#061c2bea,#103b4cdb);border:1px solid #91c4da;border-radius:14px;color:#edf6f8;box-shadow:0 8px 24px #03182850,inset 0 0 0 2px #b2d9e017;backdrop-filter:blur(5px); }
+.winter-region h3 { font-size:21px;letter-spacing:2px;font-weight:400;margin:0 0 7px;display:flex;align-items:center;gap:9px; }
+.winter-region h3 span { display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#357394;border:1px solid #a5d0e6;color:#edf9ff; }
+.winter-region p { font-size:13px;line-height:1.8;letter-spacing:1px;margin:0;color:#dae5e9; }
+.winter-region.northwest { left:20%;top:23%; }.winter-region.north { right:23%;top:19%; }
+.winter-region.southwest { left:31%;bottom:24%; }.winter-region.southeast { right:10%;bottom:27%; }
+.dongzhi-scene .main-title,.dongzhi-scene .brand-subtitle,.dongzhi-scene .nav-tab,.dongzhi-scene .poem-note,.dongzhi-scene .poem-note small,.dongzhi-scene .compass,.dongzhi-scene .rail-label,.dongzhi-scene .rail-foot,.dongzhi-scene .rail-term,.dongzhi-scene .map-instruction,.dongzhi-scene .term-summary p,.dongzhi-scene .term-heading span,.dongzhi-scene .province-open { color:#d1e1e7; }
+.dongzhi-scene .nav-tab.active,.dongzhi-scene .term-heading strong,.dongzhi-scene .rail-term.active { color:#fff1c5; }
+.dongzhi-scene .rail-term { text-shadow:none; }.dongzhi-scene .term-rail { background:linear-gradient(90deg,#06213290,transparent); }
+.dongzhi-scene .rail-term.active:after { background:linear-gradient(90deg,#659db655,transparent); }
+.dongzhi-scene .terrain-controls,.dongzhi-scene .landform-legend,.dongzhi-scene .crop-toggle,.dongzhi-scene .scroll-btn { background:#0a283cda;border-color:#a0c4d04d;color:#d8e8ed; }
+.dongzhi-scene .terrain-controls button,.dongzhi-scene .landform-legend,.dongzhi-scene .landform-legend h2 { color:#d8e8ed; }
+.dongzhi-scene .mini-map { background:#dae4da88;border-color:#b1c7c96b; }.dongzhi-scene .compass { border-color:#b8d2dc8c; }
+.dongzhi-scene .term-summary { border-left-color:#99c0d252; }
+@media(max-width:1100px){.winter-region{padding:8px 10px;}.winter-region h3{font-size:17px;}.winter-region p{font-size:11px;}.winter-region.northwest{left:16%;top:28%;}.winter-region.north{right:17%;top:25%;}.winter-region.southwest{left:24%;bottom:25%;}.winter-region.southeast{right:10%;bottom:28%;}}
+@media(max-width:760px){.winter-region{padding:5px 8px;border-radius:8px;}.winter-region h3{font-size:12px;gap:5px;margin-bottom:0;}.winter-region h3 span{width:20px;height:20px;}.winter-region p{display:none;}.winter-region.northwest{left:8%;top:31%;}.winter-region.north{right:12%;top:29%;}.winter-region.southwest{left:22%;bottom:36%;}.winter-region.southeast{right:9%;bottom:37%;}}
+:root { --cinnabar:#ac503e; --muted:#7b8173; --line:rgba(80,83,66,.20); }
+body { background: #f1eadb url('ink-landscape.png') center/cover no-repeat; }
+body::before { z-index:90; opacity:.28; }
+button,select { font-family:inherit; }
+button:focus-visible,select:focus-visible { outline:2px solid #ac503e; outline-offset:4px; }
+.intro-overlay,.pattern-top,.pattern-bottom,.scroll-header::before,.scroll-header::after { display:none; }
+.scroll-header { position:absolute;inset:0 0 auto;height:138px;padding:28px 42px;align-items:flex-start;background:none;border:0;box-shadow:none;pointer-events:none; }
+.scroll-header>* { pointer-events:auto; }
+.header-left { position:relative;gap:12px;align-items:center; }
+.main-title { font-size:45px;letter-spacing:5px;color:#313a33;text-shadow:none;white-space:nowrap; }
+.title-seal { width:21px;height:31px;font-size:11px;line-height:1.1;letter-spacing:2px;background:var(--cinnabar);border-radius:3px;box-shadow:none;transform:rotate(-3deg); }
+.brand-subtitle { position:absolute;top:65px;left:3px;white-space:nowrap;font-size:17px;letter-spacing:5px;color:#666b60; }
+.header-center { position:absolute;right:200px;top:35px;gap:20px; }
+.nav-tab { padding:8px 0;background:none;border:0;color:#71756a;font-size:14px;letter-spacing:2px; }
+.nav-tab.active { color:#34483d;background:none; }
+.nav-tab.active::after { width:20px;left:calc(50% - 10px);bottom:0;height:1px;background:var(--cinnabar); }
+.header-right { position:absolute;right:43px;top:37px;gap:10px; }
+.season-badge { display:none; }
+.scroll-btn { border-color:var(--line);border-radius:20px;padding:8px 17px;color:#696f63;background:rgba(247,242,231,.4);font-size:12px;letter-spacing:2px; }
+.scroll-btn.active { background:#647c70;border-color:#647c70; }
+.view-container { position:absolute;inset:0;height:100dvh; }
+.view { transition:opacity .3s;transform:none; }
+.overview-main { position:absolute;inset:0;display:block;height:100%;padding:0;overflow:visible; }
+.map-section { position:absolute;inset:110px 95px 97px 138px;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;perspective:none; }
+.map-section::before,.map-section::after,.map-corner-tr,.map-corner-bl,.map-title,.map-terrain-layer,.cloud-deco,.mountain-deco,.terrain-scale,.terrain-credit,.compare-bar { display:none; }
+#mainMap { position:absolute;inset:0;width:100%;height:100%;cursor:grab; }
+#mainMap:active { cursor:grabbing; }
+.terrain-controls { position:fixed;right:32px;top:220px;left:auto;bottom:auto;display:flex;flex-direction:column;gap:0;padding:8px 5px;width:46px;border:1px solid var(--line);background:rgba(248,243,232,.84);border-radius:12px;box-shadow:0 4px 15px #5a513719;backdrop-filter:blur(8px);z-index:15; }
+.terrain-controls button { width:34px;height:40px;padding:0;border:0;border-bottom:1px solid #676c591c;border-radius:0;background:none;color:#495448;font-size:19px; }
+.terrain-controls button:last-child { border:0; }
+.terrain-controls button[aria-pressed=true] { color:#3c6755;background:#708c7217; }
+.terrain-controls #terrainView3d,.terrain-controls #terrainViewTop { font-size:11px; }
+.map-back-btn { top:10px;left:5px;background:#f4eee0;border:1px solid var(--line);border-radius:20px;z-index:15; }
+.map-drill-label { left:50%;top:10px;background:none;border:0;color:#4b6856; }
+.loading-tip { padding:15px 25px;background:rgba(244,238,224,.90);border-radius:5px; }
+.term-rail { position:absolute;left:33px;top:180px;bottom:265px;width:85px;z-index:20;display:flex;flex-direction:column; }
+.rail-label { font-size:10px;letter-spacing:3px;color:#898b7c;margin:0 0 15px 13px; }
+.term-list { overflow:auto;scrollbar-width:none;position:relative; }
+.term-list::-webkit-scrollbar { display:none; }
+.term-list:before { content:'';position:absolute;left:7px;top:17px;bottom:17px;width:1px;background:#969e833d; }
+.rail-term { position:relative;display:flex;align-items:center;gap:14px;min-height:37px;width:100%;padding:6px 4px;border:0;background:none;color:#7c8271;font-size:17px;letter-spacing:2px;text-align:left;cursor:pointer; }
+.rail-term:before { content:'';width:5px;height:5px;flex-shrink:0;background:#ede9da;border:1px solid #a6ae95;border-radius:50%; }
+.rail-term.active { color:#375b4c; }
+.rail-term.active:before { background:#6a8775;border-color:#6a8775;box-shadow:0 0 0 4px #718c7216; }
+.rail-term.active:after { content:'';position:absolute;inset:2px 0;background:linear-gradient(90deg,#6c927326,transparent);border-radius:4px;z-index:-1; }
+.rail-foot { font-size:10px;letter-spacing:2px;color:#8f9383;margin-top:10px; }
+.poem-note { position:absolute;right:124px;top:100px;text-align:right;z-index:12;color:#616c5d;font-size:15px;letter-spacing:3px;line-height:1.9;pointer-events:none; }
+.poem-note small { display:block;font-size:10px;color:#8f9483;letter-spacing:3px;margin-top:4px; }
+.compass { position:absolute;right:41px;top:106px;width:45px;height:45px;border:1px solid #7b82646b;border-radius:50%;color:#68705f;text-align:center;z-index:10;font-size:10px; }
+.compass:before { content:'N';position:absolute;left:18px;top:-18px; }
+.compass:after { content:'↑';font-size:36px;line-height:42px; }
+.landform-legend { position:absolute;bottom:38px;left:33px;z-index:12;background:rgba(248,243,231,.84);backdrop-filter:blur(6px);border:1px solid #797b641e;border-radius:9px;padding:15px 18px;width:276px;color:#68705e;box-shadow:0 5px 24px #534b3710; }
+.landform-legend h2 { font-size:16px;letter-spacing:3px;font-weight:400;margin-bottom:11px;color:#3e4b3e; }
+.landform-legend p { display:flex;align-items:center;gap:10px;font-size:11px;line-height:1.9;letter-spacing:1px; }
+.landform-legend i { width:23px;height:13px;display:inline-block;border-radius:4px;background:linear-gradient(140deg,var(--swatch),#a3aa8b);box-shadow:inset 2px 1px 4px #ffffff60; }
+.landform-legend span { width:65px; }
+.map-instruction { position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:2px;color:#8a8d7b;white-space:nowrap;z-index:10; }
+.term-summary { position:absolute;right:198px;bottom:39px;z-index:12;min-width:265px;padding-left:19px;border-left:1px solid #91977d55; }
+.term-eyebrow { color:#969b84;font-size:10px;letter-spacing:3px; }
+.term-heading { display:flex;align-items:baseline;gap:14px;margin:5px 0 7px; }
+.term-heading strong { font-size:31px;font-weight:400;letter-spacing:5px;color:#3e5f4d; }
+.term-heading span { color:#969986;font-size:11px;letter-spacing:1px; }
+.term-hou-line { font-size:12px;letter-spacing:2px;color:#6e7967; }
+.crop-toggle { margin-top:13px;border:1px solid #85927b44;border-radius:20px;background:#f4efe08c;padding:6px 13px;color:#667f64;font-size:11px;letter-spacing:1px;cursor:pointer; }
+.crop-toggle[aria-pressed=true] { background:#70866d;color:#f7f3e8; }
+.province-open { border:0;background:none;color:#8c7357;font-size:11px;padding:5px 7px;cursor:pointer;letter-spacing:1px; }
+.mini-map { position:absolute;right:35px;bottom:43px;width:126px;height:107px;border:1px solid #85897055;border-radius:4px;z-index:10;padding:9px;opacity:.75; }
+.mini-map canvas { width:100%;height:100%; }
+.info-panel { position:fixed;right:92px;top:158px;bottom:165px;width:370px;z-index:30;background:rgba(250,246,236,.96);border:1px solid #87897344;border-radius:10px;box-shadow:0 16px 50px #4b51362b;transform:translateX(25px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s; }
+.info-panel.open { transform:none;opacity:1;visibility:visible; }
+.info-panel:before,.page-number-left,.page-number { display:none; }
+.panel-inner { padding:27px 25px; }
+.panel-close { position:sticky;float:right;top:10px;right:10px;z-index:40;border:0;background:none;color:#7e8572;font-size:26px;padding:0 12px;cursor:pointer; }
+.province-name { font-size:26px;color:#3f5948;letter-spacing:4px; }
+.province-header { margin-bottom:15px; }
+.province-header:after { background:#8b967648;height:1px; }
+.lunar-calendar-card { border:0;border-radius:5px;background:#7686640b;box-shadow:none;padding:12px; }
+.cal-left { width:78px; }
+.cal-month,.cal-day { color:#577255; }
+.cal-day { font-size:30px; }
+.cal-gregorian { display:none; }
+.jade-buttons { gap:8px;margin:17px 0; }
+.jade-btn,.jade-btn.active { background:none;box-shadow:none;border:1px solid #74896c42;border-radius:4px;color:#697c62;min-height:45px; }
+.jade-btn.active { background:#748969;color:#f7f4e9; }
+.jade-btn:before,.btn-icon { display:none; }
+.jade-btn .btn-text { font-size:14px; }
+.ink-illustration { display:none; }
+.classic-text { color:#666f5b;background:none;border:0;border-radius:0;padding:12px 0;line-height:2; }
+.classic-text:before { display:none; }
+.info-panel .section-title { color:#4e6650;font-size:17px; }
+.info-panel .pheno-bars { margin-top:10px; }
+.info-panel .pheno-bar-fill { background:linear-gradient(90deg,#a3ad89,#668467); }
+#view-timeline,#view-compare,#view-almanac { top:133px;bottom:24px;left:30px;right:30px;padding:10px 20px;overflow:auto;background:rgba(248,245,232,.90);border:1px solid #91967a33;border-radius:8px; }
+.timeline-header,.almanac-header { padding-top:15px; }
+.term-card { background:rgba(249,247,233,.7);border:1px solid #98a17f55;border-radius:6px;box-shadow:none; }
+.term-card.active { border-color:#688469;background:#78957018; }
+.term-name,.season-title h3,.timeline-header h2,.almanac-header h2,.compare-header h2 { color:#4d6a50; }
+.compare-detail-card,.hou-card { background:#f7f4e5;border-color:#95a28255;box-shadow:none; }
+.province-select { background:#f5f1e1;border-color:#95a28255;color:#5b7052; }
+.compare-detail { min-width:760px; }
+@media (min-width:1600px) { .map-section { inset:120px 130px 125px 155px; }.term-rail { top:200px;bottom:310px; }.rail-term { min-height:40px; }.landform-legend { bottom:50px; }.term-summary { bottom:55px; } }
+@media (max-height:760px) and (min-width:761px) { .term-rail { bottom:240px;top:157px; }.rail-term { min-height:33px;font-size:15px; }.landform-legend { bottom:24px;padding:12px 16px; }.map-section { inset:110px 95px 80px 125px; }.term-summary { bottom:35px; }.info-panel { top:145px;bottom:65px; } }
+@media (max-width:1000px) { .header-center { right:185px;gap:12px; }.nav-tab { font-size:12px;letter-spacing:1px; }.main-title { font-size:35px; }.brand-subtitle { font-size:13px;top:53px; }.term-summary { right:160px;min-width:200px; }.landform-legend { width:240px; }.landform-legend p { font-size:10px; }.info-panel { right:85px;width:340px; } }
+@media (max-width:760px) { .scroll-header { padding:22px 22px;height:130px; }.main-title { font-size:32px;letter-spacing:3px; }.brand-subtitle { top:47px;font-size:12px;letter-spacing:3px; }.header-center { left:22px;right:22px;top:105px;justify-content:space-between;gap:10px; }.nav-tab { font-size:13px; }.header-right { top:29px;right:22px; }.scroll-btn { font-size:10px;padding:7px 10px; }.poem-note { top:151px;right:60px;font-size:11px;letter-spacing:2px; }.poem-note small { font-size:8px; }.compass { top:158px;right:20px;width:27px;height:27px; }.compass:after { font-size:25px;line-height:25px; }.compass:before { left:10px;top:-13px;font-size:8px; }.map-section { inset:180px 16px 235px 16px; }.terrain-controls { top:239px;right:12px;width:34px;padding:3px; }.terrain-controls button { width:26px;height:33px;font-size:16px; }.term-rail { left:20px;right:20px;width:auto;top:auto;bottom:173px;height:46px; }.rail-label,.rail-foot,.term-list:before { display:none; }.term-list { display:flex;overflow-x:auto;flex-shrink:0; }.rail-term { min-width:65px;min-height:40px;justify-content:center;padding:4px;font-size:15px; }.rail-term:before { display:none; }.landform-legend { left:20px;bottom:27px;width:157px;padding:10px 11px;border-radius:6px; }.landform-legend h2 { font-size:12px;margin-bottom:6px; }.landform-legend p { font-size:9px;line-height:1.6;gap:6px; }.landform-legend i { width:15px;height:9px; }.landform-legend span { width:auto; }.landform-legend p em { display:none; }.term-summary { right:20px;bottom:27px;min-width:150px;width:calc(100% - 218px);padding-left:12px; }.term-heading { gap:7px; }.term-heading strong { font-size:25px; }.term-heading span { font-size:9px; }.term-hou-line { line-height:1.8;font-size:10px;letter-spacing:1px; }.crop-toggle { padding:5px 8px;font-size:10px;margin-top:8px; }.province-open { display:block;padding-left:0;font-size:10px; }.mini-map,.map-instruction { display:none; }.info-panel { left:16px;right:16px;top:160px;bottom:24px;width:auto; }.panel-inner { padding:25px; }#view-timeline,#view-compare,#view-almanac { top:151px;left:13px;right:13px;bottom:16px;padding:8px 12px; }.terms-row { flex-wrap:wrap; }.term-card { min-width:calc(50% - 12px); }.hou-grid { grid-template-columns:1fr; }.compare-detail { min-width:0;display:flex;flex-direction:column; }.compare-detail-card { width:100%; }.compare-center-col { flex-direction:row;justify-content:center; }.season-section { padding:12px; }.timeline-header h2,.almanac-header h2 { font-size:25px; } }
+@media (prefers-reduced-motion:reduce) { *,*:before,*:after { animation:none!important;transition:none!important;scroll-behavior:auto!important; } }
+
+.main-title { font-family:"STXingkai","华文行楷","KaiTi",serif;font-size:54px;font-weight:400;letter-spacing:3px; }.landform-legend em { font-style:normal; }.term-rail { background:linear-gradient(90deg,#f2ecdd60,transparent);border-radius:5px; }.rail-term { text-shadow:0 1px 5px #f5efdf; }
+@media(max-width:1000px){.main-title{font-size:42px;}}
+@media(max-width:760px){.main-title{font-size:35px;}.term-rail{background:none;}}
+
+.hou-illust { filter:grayscale(1);opacity:.65; }.landform-legend p { font-size:12px; }
+@media(max-width:1000px){.landform-legend p{font-size:10px;}}
+@media(max-width:760px){.landform-legend p{font-size:9px;}}
+.landform-legend p { white-space:nowrap; }
+.landform-legend p i { flex-shrink:0; }
+.landform-legend p span { flex-shrink:0; }
+.landform-legend p em { white-space:nowrap;font-size:10.5px;letter-spacing:.4px; }
+@media(max-width:760px){.landform-legend p{font-size:9px;white-space:normal;}}
